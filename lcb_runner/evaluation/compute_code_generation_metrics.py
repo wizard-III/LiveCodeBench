@@ -235,12 +235,6 @@ parser.add_argument(
     required=True,
     type=str,
 )
-parser.add_argument(
-    "--k_list",
-    type=lambda s: list(map(int, s.split(','))),
-    help='Comma-separated list of ints',
-    default=[1, 4],
-)
 args = parser.parse_args()
 
 def extract_answer(model_solution):
@@ -256,7 +250,6 @@ if __name__ == "__main__":
     lcb_dataset = load_code_generation_dataset(release_version="release_v5", start_date = "2024-08-01", end_date = "2025-02-01")
 
     parquet_file = args.eval_file
-    k_list = args.k_list
 
     dataframe = pl.read_parquet(parquet_file)
 
