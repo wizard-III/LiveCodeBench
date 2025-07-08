@@ -14,6 +14,7 @@ While we have tries to ensure the correctness of the benchmark in terms of test 
 8. find-the-peaks - Multiple solutions accepted
 10. generate-binary-strings-without-adjacent-zeros - Multiple solutions accepted
 11. arc185_c - Multiple solutions accepted
+12. abc343_a - Multiple solutions accepted
 
 
 ## Interactive Problems
