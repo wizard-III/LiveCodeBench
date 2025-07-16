@@ -5,7 +5,7 @@ Official repository for the paper "LiveCodeBench: Holistic and Contamination Fre
     <a href="https://livecodebench.github.io/">🏠 Home Page</a> •
     <a href="https://huggingface.co/livecodebench/">💻 Data </a> •
     <a href="https://livecodebench.github.io/leaderboard.html">🏆 Leaderboard</a> •
-    <a href="https://livecodebench.github.io/leaderboard.html](https://huggingface.co/spaces/livecodebench/code_generation_samples">🔍 Explorer</a> 
+    <a href="https://huggingface.co/spaces/livecodebench/code_generation_samples">🔍 Explorer</a> 
 </p>
 
 ## Introduction
