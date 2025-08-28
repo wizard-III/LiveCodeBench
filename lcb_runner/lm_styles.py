@@ -59,18 +59,18 @@ class LanguageModel:
 LanguageModelList: list[LanguageModel] = [
     ## LLama3 Base (8B and 70B)
     LanguageModel(
-        "meta-llama/Meta-Llama-3-70B",
-        "LLama3-70b-Base",
-        LMStyle.GenericBase,
-        datetime(2023, 1, 1),
-        link="https://huggingface.co/meta-llama/Meta-Llama-3-70B",
-    ),
-    LanguageModel(
         "meta-llama/Meta-Llama-3-8B",
         "LLama3-8b-Base",
         LMStyle.GenericBase,
         datetime(2023, 1, 1),
         link="https://huggingface.co/meta-llama/Meta-Llama-3-8B",
+    ),
+    LanguageModel(
+        "meta-llama/Meta-Llama-3-70B",
+        "LLama3-70b-Base",
+        LMStyle.GenericBase,
+        datetime(2023, 1, 1),
+        link="https://huggingface.co/meta-llama/Meta-Llama-3-70B",
     ),
     ## LLama3 Instruct (8B and 70B)
     LanguageModel(
@@ -89,62 +89,62 @@ LanguageModelList: list[LanguageModel] = [
     ),
     ## LLama3.1 Base (8B, 70B, 405B)
     LanguageModel(
-        "meta-llama/Meta-Llama-3.1-8B",
+        "meta-llama/Llama-3.1-8B",
         "LLama3.1-8b-Base",
         LMStyle.GenericBase,
         datetime(2023, 1, 1),
-        link="https://huggingface.co/meta-llama/Meta-Llama-3.1-8B",
+        link="https://huggingface.co/meta-llama/Llama-3.1-8B",
     ),
     LanguageModel(
-        "meta-llama/Meta-Llama-3.1-70B",
+        "meta-llama/Llama-3.1-70B",
         "LLama3.1-70b-Base",
         LMStyle.GenericBase,
         datetime(2023, 1, 1),
-        link="https://huggingface.co/meta-llama/Meta-Llama-3.1-70B",
+        link="https://huggingface.co/meta-llama/Llama-3.1-70B",
     ),
     LanguageModel(
-        "meta-llama/Meta-Llama-3.1-405B-FP8",
+        "meta-llama/Llama-3.1-405B-FP8",
         "LLama3.1-405b-Base-FP8",
         LMStyle.GenericBase,
         datetime(2023, 1, 1),
-        link="https://huggingface.co/meta-llama/Meta-Llama-3.1-405B-FP8",
+        link="https://huggingface.co/meta-llama/Llama-3.1-405B-FP8",
     ),
     ## LLama3.1 Instruct (8B, 70B, 405B)
     LanguageModel(
-        "meta-llama/Meta-Llama-3.1-8B-Instruct",
+        "meta-llama/Llama-3.1-8B-Instruct",
         "LLama3.1-8b-Ins",
         LMStyle.LLaMa3,
         datetime(2023, 1, 1),
-        link="https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct",
+        link="https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct",
     ),
     LanguageModel(
-        "meta-llama/Meta-Llama-3.1-70B-Instruct",
+        "meta-llama/Llama-3.1-70B-Instruct",
         "LLama3.1-70b-Ins",
         LMStyle.LLaMa3,
         datetime(2023, 1, 1),
-        link="https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
+        link="https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct",
     ),
     LanguageModel(
-        "meta-llama/Meta-Llama-3.1-405B-Instruct-FP8",
+        "meta-llama/Llama-3.1-405B-Instruct-FP8",
         "LLama3.1-405b-Ins-FP8",
         LMStyle.LLaMa3,
         datetime(2023, 1, 1),
-        link="https://huggingface.co/meta-llama/Meta-Llama-3.1-405B-Instruct-FP8",
+        link="https://huggingface.co/meta-llama/Llama-3.1-405B-Instruct-FP8",
     ),
     ## LLama3.3 Instruct (8B, 70B)
+    # LanguageModel( 
+    #     "meta-llama/Llama-3.3-8B-Instruct", # Has been removed from HuggingFace by meta-llama
+    #     "LLama3.3-8b-Ins",
+    #     LMStyle.LLaMa3,
+    #     datetime(2023, 1, 1),
+    #     link="https://huggingface.co/meta-llama/Llama-3.3-8B-Instruct",
+    # ),
     LanguageModel(
         "meta-llama/Llama-3.3-70B-Instruct",
         "LLama3.3-70b-Ins",
         LMStyle.LLaMa3,
         datetime(2023, 1, 1),
         link="https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
-    ),
-    LanguageModel(
-        "meta-llama/Llama-3.3-8B-Instruct",
-        "LLama3.3-8b-Ins",
-        LMStyle.LLaMa3,
-        datetime(2023, 1, 1),
-        link="https://huggingface.co/meta-llama/Llama-3.3-8B-Instruct",
     ),
     ## Deepseek-Coder Base (33B, 6.7B, 1.3B)
     LanguageModel(
@@ -432,6 +432,34 @@ LanguageModelList: list[LanguageModel] = [
         datetime(2023, 4, 30),
         link="https://www.anthropic.com/index/claude-3",
     ),
+    LanguageModel(
+        "claude-sonnet-4-20250514",
+        "Claude-Sonnet-4 (Thinking)",
+        LMStyle.Claude3Thinking,
+        datetime(2023, 4, 30),
+        link="https://www.anthropic.com/claude/sonnet",
+    ),
+    LanguageModel(
+        "claude-opus-4-20250514",
+        "Claude-Opus-4 (Thinking)",
+        LMStyle.Claude3Thinking,
+        datetime(2023, 4, 30),
+        link="https://www.anthropic.com/claude/sonnet",
+    ),
+    LanguageModel(
+        "claude-opus-4-20250514_nothink",
+        "Claude-Opus-4",
+        LMStyle.Claude3Thinking,
+        datetime(2023, 4, 30),
+        link="https://www.anthropic.com/claude/sonnet",
+    ),
+    LanguageModel(
+        "claude-sonnet-4-20250514_nothink",
+        "Claude-Sonnet-4",
+        LMStyle.Claude3,
+        datetime(2023, 4, 30),
+        link="https://www.anthropic.com/claude/sonnet",
+    ),
     ## Gemini
     LanguageModel(
         "gemini-1.5-pro-002",
@@ -476,15 +504,43 @@ LanguageModelList: list[LanguageModel] = [
     #     link="https://ai.google.dev/gemini-api/docs/models/experimental-models",
     # ),
     LanguageModel(
-        "gemini-2.5-pro-exp-03-25",
-        "Gemini-2.5-Pro",
+        "gemini-2.5-pro",
+        "Gemini-2.5-Pro-06-17",
         LMStyle.GeminiThinking,
         datetime(2023, 4, 30),
         link="https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/#advanced-coding",
     ),
     LanguageModel(
+        "gemini-2.5-pro-preview-06-05",
+        "Gemini-2.5-Pro-06-05",
+        LMStyle.GeminiThinking,
+        datetime(2023, 4, 30),
+        link="https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/#advanced-coding",
+    ),
+    LanguageModel(
+        "gemini-2.5-pro-preview-05-06",
+        "Gemini-2.5-Pro-05-06",
+        LMStyle.GeminiThinking,
+        datetime(2023, 4, 30),
+        link="https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/#advanced-coding",
+    ),
+    # LanguageModel(
+    #     "gemini-2.5-pro-exp-03-25",
+    #     "Gemini-2.5-Pro-03-25",
+    #     LMStyle.GeminiThinking,
+    #     datetime(2023, 4, 30),
+    #     link="https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/#advanced-coding",
+    # ),
+    LanguageModel(
         "gemini-2.5-flash-preview-04-17",
-        "Gemini-2.5-Flash-Preview",
+        "Gemini-2.5-Flash-04-17",
+        LMStyle.GeminiThinking,
+        datetime(2023, 4, 30),
+        link="https://developers.googleblog.com/en/start-building-with-gemini-25-flash/",
+    ),
+    LanguageModel(
+        "gemini-2.5-flash-preview-05-20",
+        "Gemini-2.5-Flash-05-20",
         LMStyle.GeminiThinking,
         datetime(2023, 4, 30),
         link="https://developers.googleblog.com/en/start-building-with-gemini-25-flash/",
@@ -630,6 +686,13 @@ LanguageModelList: list[LanguageModel] = [
         link="https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct",
     ),
     LanguageModel(
+        "Qwen/Qwen3-235B-A22B",
+        "Qwen3-235B-A22B",
+        LMStyle.CodeQwenInstruct,
+        datetime(2024, 6, 30),
+        link="https://huggingface.co/Qwen/Qwen3-235B-A22B",
+    ),
+    LanguageModel(
         "azerogpt",
         "AzeroGPT-64b",
         LMStyle.CodeQwenInstruct,
@@ -663,6 +726,13 @@ LanguageModelList: list[LanguageModel] = [
         LMStyle.DeepSeekR1,
         datetime(2024, 6, 30),
         link="https://huggingface.co/deepseek-ai/DeepSeek-R1",
+    ),
+    LanguageModel(
+        "deepseek-reasoner",
+        "DeepSeek-R1-0528",
+        LMStyle.DeepSeekR1,
+        datetime(2024, 6, 30),
+        link="https://huggingface.co/deepseek-ai/DeepSeek-R1-0528",
     ),
     ## DeepSeek R1 distilled of Qwen/Llama models
     LanguageModel(
