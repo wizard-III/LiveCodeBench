@@ -10,7 +10,6 @@
 # borrowed and extended from
 # https://github.com/Naman-ntc/codescratch/blob/main/evaluation/bigcode-evaluation-harness/lm_eval/tasks/custom_metrics/apps_custom_metrics/utils.py
 
-import argparse
 import os
 import sys
 
@@ -50,8 +49,9 @@ def check_correctness(sample, generation, timeout, debug=True):
     )
     p.start()
     p.join(
-        timeout=(timeout + 1) * len(json.loads(sample["input_output"])["inputs"]) + 5
+        timeout=min((timeout + 1) * len(json.loads(sample["input_output"])["inputs"]) + 5, 900)
     )
+
     if p.is_alive():
         p.kill()
     if not result:
@@ -229,15 +229,8 @@ from lcb_runner.benchmarks.code_generation import load_code_generation_dataset
 
 THOUGHT_DELIMITER_END = "</think>"
 
-parser = argparse.ArgumentParser()
-parser.add_argument(
-    "--eval_file",
-    required=True,
-    type=str,
-)
-args = parser.parse_args()
-
 def extract_answer(model_solution):
+    # pattern = r"```(?:\w+)?\n(.*?)\n```"
     pattern = r"```python\n(.*?)```"
     match = re.findall(pattern, model_solution, re.DOTALL)
     if len(match) == 0:
@@ -247,9 +240,9 @@ def extract_answer(model_solution):
         return code
 
 if __name__ == "__main__":
-    lcb_dataset = load_code_generation_dataset(release_version="release_v5", start_date = "2024-08-01", end_date = "2025-02-01")
 
-    parquet_file = args.eval_file
+    lcb_dataset = load_code_generation_dataset(release_version="release_v5", start_date = "2024-08-01", end_date = "2025-02-01")
+    parquet_file = './DCPO-Qwen2.5-1.5B/global_step_200/actor/hf_model/output/livecodebench_v5.parquet'
 
     dataframe = pl.read_parquet(parquet_file)
 
@@ -284,10 +277,9 @@ if __name__ == "__main__":
     metrics = codegen_metrics(
         eval_samples,
         generations,
-        k_list=[1, 4],
-        num_process_evaluate=48,
-        timeout=150,
+        k_list=[1, 8],
+        num_process_evaluate=64,
+        timeout=120,
     )
 
-    print("{} \npass@1: {:.4f}, pass@4: {:.4f}".format(parquet_file, metrics[0]["pass@1"], metrics[0]["pass@4"]))
-
+    print("{} \npass@1: {:.4f}, pass@8: {:.4f}".format(parquet_file, metrics[0]["pass@1"], metrics[0]["pass@8"]))
